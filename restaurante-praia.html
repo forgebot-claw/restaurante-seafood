@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[NOME] | Marisqueira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { navy: '#1e3a5f', wave: '#2c5282', sand: '#fefae0', blue: '#0ea5e9', dark: '#0f172a' }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Archivo Narrow', sans-serif; }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <!-- HERO -->
+    <section class="min-h-screen relative flex items-center">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Mar">
+        <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-blue/30"></div>
+        <div class="relative z-10 max-w-3xl ml-6 md:ml-24 px-6">
+            <p class="text-blue tracking-[0.3em] uppercase mb-4">☀️ Praia & Mar</p>
+            <h1 class="text-6xl md:text-8xl font-bold mb-6">[NOME]</h1>
+            <p class="text-xl text-gray-300 mb-10">O melhor marisco da costa. Fresco, direto do barco.</p>
+            <a href="#menu" class="bg-blue text-white px-8 py-4 rounded font-bold hover:bg-blue/90 transition">Ver Menu</a>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="py-24 bg-navy">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Marisco</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-wave p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-blue">🦐 Camarão</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between"><span>Camarão gigante grelhado</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Camarão台风</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Camarão Moreira</span><span class="text-blue font-bold">[P]€</span></div>
+                    </div>
+                </div>
+                <div class="bg-wave p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-blue">🦞 Lagosta</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between"><span>Lagosta grelhada</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Lagosta thermidor</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Arroz de lagosta</span><span class="text-blue font-bold">[P]€</span></div>
+                    </div>
+                </div>
+                <div class="bg-wave p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-blue">🐚 Marisco Mixto</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between"><span>Marisco para 2</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Marisco para 4</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Cataplana</span><span class="text-blue font-bold">[P]€</span></div>
+                    </div>
+                </div>
+                <div class="bg-wave p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-blue">🐟 Peixe</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between"><span>Dourada inteira</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Robalo grelhado</span><span class="text-blue font-bold">[P]€</span></div>
+                        <div class="flex justify-between"><span>Aquário</span><span class="text-blue font-bold">[P]€</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="py-16 bg-sand text-dark">
+        <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+            <div><p class="font-bold text-lg">📍 Localização</p><p class="">[morada]</p></div>
+            <div><p class="font-bold text-lg">📞 Reserva</p><p class="">[telefone]</p></div>
+            <div><p class="font-bold text-lg">⏰ Horário</p><p class="">[horário]</p></div>
+        </div>
+    </section>
+
+    <footer class="bg-dark py-12 text-center text-gray-500">
+        <p>&copy; 2026 [NOME]</p>
+    </footer>
+</body>
+</html>
