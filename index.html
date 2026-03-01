@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[NOME_DO_RESTAURANTE] - Marisqueira em [LOCALIDADE]. O melhor peixe e marisco fresco.">
+    <title>[NOME_DO_RESTAURANTE] | Marisqueira & Restaurante</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: '#0a2540',
+                        deep: '#051923',
+                        sea: '#00a8e8',
+                        sand: '#e8dcc4',
+                        coral: '#ff6b6b'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #051923; }
+        ::-webkit-scrollbar-thumb { background: #00a8e8; border-radius: 4px; }
+        .hover-sea:hover { color: #00a8e8; }
+        .menu-item { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease forwards; }
+        .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-item:nth-child(2) { animation-delay: 0.2s; }
+        .menu-item:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+
+<body class="bg-deep text-gray-100 font-sans antialiased">
+    
+    <!-- NAV -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-deep/95 backdrop-blur-sm border-b border-ocean">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a href="#" class="text-xl sm:text-2xl font-bold text-sea">🐟 [NOME]</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="hover-sea transition-colors">Início</a>
+                    <a href="#menu" class="hover-sea transition-colors">Menu</a>
+                    <a href="#galeria" class="hover-sea transition-colors">Galeria</a>
+                    <a href="#contacto" class="hover-sea transition-colors">Contacto</a>
+                    <a href="#reservar" class="bg-sea text-white px-5 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Reservar</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-100 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-ocean border-t border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#inicio" class="block hover-sea">Início</a>
+                <a href="#menu" class="block hover-sea">Menu</a>
+                <a href="#galeria" class="block hover-sea">Galeria</a>
+                <a href="#contacto" class="block hover-sea">Contacto</a>
+                <a href="#reservar" class="block bg-sea text-white px-5 py-2 rounded-lg text-center">Reservar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=80" alt="Marisco" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-deep/90 via-ocean/80 to-deep"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <p class="text-sea text-sm uppercase tracking-widest mb-4 animate-pulse">O Melhor Peixe & Marisco Fresco</p>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-6">[NOME]</h1>
+            <p class="text-gray-300 text-lg mb-8">Directamente do mar para a sua mesa. Qualidade, frescura e tradição.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#reservar" class="bg-sea text-white px-8 py-4 rounded-lg font-semibold text-lg">Fazer Reserva</a>
+                <a href="#menu" class="border border-sea text-sea px-8 py-4 rounded-lg font-semibold text-lg hover:bg-sea hover:text-white transition-colors">Ver Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="py-20 sm:py-32 bg-ocean">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-sea text-sm uppercase tracking-widest mb-2">O Nosso Menu</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold mb-4">Sabores do Mar</h3>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="showCategory('marisco')" class="menu-tab active px-6 py-3 rounded-full border border-sea text-white bg-sea" data-category="marisco">Marisco</button>
+                <button onclick="showCategory('peixe')" class="menu-tab px-6 py-3 rounded-full border border-gray-600 text-gray-400 hover:border-sea hover:text-sea" data-category="peixe">Peixe</button>
+                <button onclick="showCategory('pratos')" class="menu-tab px-6 py-3 rounded-full border border-gray-600 text-gray-400 hover:border-sea hover:text-sea" data-category="pratos">Pratos</button>
+            </div>
+            <div id="marisco" class="menu-category grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Amêijoas à Bulhão Pato</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Amêijoas frescas, vinho branco, alho, coentros</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Lagosta na Grelha</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Lagosta fresca, manteiga, alho, limão</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Camarão Tigre</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Camarão grande, grelhado, alho, salsa</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Percebes</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Percebes frescos do仙境</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Carabineiros</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Carabineiros frescos, grelhados</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Sapateira</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Sapateira fresca, maionese, limão</p>
+                </div>
+            </div>
+            <div id="peixe" class="menu-category hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Bacalhau Assado</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Bacalhau fresco, batatas, azeitonas</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Pargo Grelhado</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Pargo fresco, azeite, alho, limão</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Linguado Meunière</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Linguado fresco, manteiga, salsa</p>
+                </div>
+            </div>
+            <div id="pratos" class="menu-category hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Arroz de Marisco</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Arroz caldoso, inúmeras variedades de marisco</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Caldeirada de Peixe</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Peixe fresco do dia, batata, pimentão</p>
+                </div>
+                <div class="menu-item bg-deep rounded-2xl p-6 border border-ocean hover:border-sea transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-semibold">Cataplana de Marisco</h4>
+                        <span class="text-sea font-bold">[PREÇO]€</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Marisco fresco,煤, acompanhamento</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="galeria" class="py-20 sm:py-32 bg-deep">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-sea text-sm uppercase tracking-widest mb-2">Galeria</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold">O Nosso Mar</h3>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&q=80" alt="1" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=400&q=80" alt="2" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt="3" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1551244072-5d12893278ab?w=400&q=80" alt="4" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity">
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVATION -->
+    <section id="reservar" class="py-20 sm:py-32 bg-ocean">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-sea text-sm uppercase tracking-widest mb-2">Reservas</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold">Reserve a Sua Mesa</h3>
+            </div>
+            <form class="bg-deep rounded-2xl p-8 border border-ocean">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Nome</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-lg bg-ocean border border-gray-700 focus:border-sea outline-none text-white" placeholder="O seu nome">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Telefone</label>
+                        <input type="tel" class="w-full px-4 py-3 rounded-lg bg-ocean border border-gray-700 focus:border-sea outline-none text-white" placeholder="912 345 678">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Data</label>
+                        <input type="date" class="w-full px-4 py-3 rounded-lg bg-ocean border border-gray-700 focus:border-sea outline-none text-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Hora</label>
+                        <select class="w-full px-4 py-3 rounded-lg bg-ocean border border-gray-700 focus:border-sea outline-none text-white">
+                            <option>12:00</option><option>12:30</option><option>13:00</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Pessoas</label>
+                        <select class="w-full px-4 py-3 rounded-lg bg-ocean border border-gray-700 focus:border-sea outline-none text-white">
+                            <option>2</option><option>4</option><option>6</option><option>8+</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-sea text-white py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90">Enviar Reserva</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto" class="py-20 sm:py-32 bg-deep">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-sea text-sm uppercase tracking-widest mb-2">Contacto</h2>
+                    <h3 class="text-3xl font-bold mb-6">Estamos Aqui</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-sea rounded-full flex items-center justify-center">📍</div>
+                            <div><p class="font-medium">Morada</p><p class="text-gray-400">[morada], [cidade]</p></div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-sea rounded-full flex items-center justify-center">📞</div>
+                            <div><p class="font-medium">Telefone</p><p class="text-gray-400">[telefone]</p></div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-sea rounded-full flex items-center justify-center">⏰</div>
+                            <div><p class="font-medium">Horário</p><p class="text-gray-400">[horário]</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-ocean rounded-2xl h-80">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDAwJzAwLjAiTiAwwrAwJzAwLjAiVw!5e0!3m2!1spt-PT!2spt!4v1" width="100%" height="100%" style="border:0;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-deep py-12 border-t border-ocean">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sea text-xl font-bold mb-4">🐟 [NOME]</p>
+            <p class="text-gray-500 text-sm">&copy; 2026 [NOME]. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        function showCategory(category) {
+            document.querySelectorAll('.menu-category').forEach(cat => cat.classList.add('hidden'));
+            document.getElementById(category).classList.remove('hidden');
+            document.querySelectorAll('.menu-tab').forEach(tab => {
+                tab.classList.remove('border-sea', 'text-white', 'bg-sea');
+                tab.classList.add('border-gray-600', 'text-gray-400');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('border-sea', 'text-white', 'bg-sea');
+            document.querySelector(`[data-category="${category}"]`).classList.remove('border-gray-600', 'text-gray-400');
+        }
+    </script>
+</body>
+</html>
